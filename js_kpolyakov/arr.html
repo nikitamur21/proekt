@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="arr"></div>
+<div id="odd"></div>
+<script>
+function ArrayToStr(tarr, tmp){
+	for (let i=0; i < tarr.length; ++i)
+		tmp += tarr[i] + " ";
+	return tmp;
+}
+let arr = [];
+let N = 100;//+prompt("Введите количество элементов:");
+let tmp="";
+for (let i = 0; i < N; ++i) {
+	arr.push(Math.ceil(Math.random()*10));
+}
+tmp = ArrayToStr(arr, "Исходный массив:");
+oarr = document.getElementById("arr");
+oarr.innerHTML = tmp;
+oodd = document.getElementById("odd");
+let b = [];
+for (let i = 0; i < N; ++i) 
+	if (arr[i]%2 == 0)
+		b.push(arr[i]);
+tmp =  ArrayToStr(b, "Массив четных чисел из исходного массива:")
+oodd.innerHTML = tmp;
+</script>
+</body>
+</html>
