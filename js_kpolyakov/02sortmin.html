@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="arr"></div>
+<div id="sort"></div>
+<script>
+function ArrayToStr(tarr, tmp){
+	for (let i=0; i < tarr.length; ++i)
+		tmp += tarr[i] + " ";
+	return tmp;
+}
+
+function Sort(array){
+	for(i = 0; i < (array.length-1); i++){
+		var nMin = i;
+		for(j = i+1; j < array.length; j++){
+			if(array[j] < array[nMin]){
+				nMin = j;
+			}
+		}
+		if(i != nMin){
+			temp = array[i];
+			array[i] = array[nMin];
+			array[nMin] = temp;
+		}
+	}
+	return array;
+}
+
+let arr = [];
+let N = 10;//+prompt("Введите количество элементов:");
+for (let i = 0; i < N; ++i) {
+	arr.push(Math.ceil(Math.random()*10));
+}
+oarr = document.getElementById("arr");
+oarr.innerHTML = ArrayToStr(arr, "Исходный массив: ");
+osort = document.getElementById("sort");
+
+osort.innerHTML = ArrayToStr(Sort(arr), "Отсортированный массив: ");
+</script>
+</body>
+</html>
